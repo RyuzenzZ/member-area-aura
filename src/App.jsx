@@ -559,7 +559,7 @@ function MemberDashboard({ user, updateUser, onLogout, showToast }) {
                   </div>
                   <h4 className="text-lg font-bold text-white mb-2">{product.title}</h4>
                   <p className="text-sm text-slate-400 mb-6 flex-1">{product.shortDesc}</p>
-                  <button onClick={() => handleLaunchProduct(product.title)} className="w-full bg-blue-600/10 text-blue-400 hover:bg-blue-600 hover:text-white border border-blue-500/20 py-2.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2">
+                  <button onClick={() => handleLaunchProduct(product)} className="w-full bg-blue-600/10 text-blue-400 hover:bg-blue-600 hover:text-white border border-blue-500/20 py-2.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2">
                     {product.actionText} <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
