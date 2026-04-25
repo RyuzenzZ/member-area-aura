@@ -442,9 +442,14 @@ function MemberDashboard({ user, updateUser, onLogout, showToast }) {
     { name: 'Settings', icon: Settings },
   ];
 
-  const handleLaunchProduct = (productName) => {
-    showToast(`Engine ${productName} sedang diinisialisasi...`, 'success');
-  };
+ const handleLaunchProduct = (product) => {
+  if (product.link) {
+    window.open(product.link, '_blank', 'noopener,noreferrer');
+    showToast(`Engine ${product.title} sedang diinisialisasi...`, 'success');
+  } else {
+    showToast(`Link untuk ${product.title} belum tersedia.`, 'warning');
+  }
+};
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
