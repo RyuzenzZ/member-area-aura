@@ -13,7 +13,7 @@ import {
   Search, Bell, User, LayoutDashboard, Key, RefreshCw, 
   LifeBuoy, Share2, Settings, LogOut, Clock, Lock, Play, 
   Gamepad2, Video, Smartphone, Brain, Download, Menu, X, Crown, Star,
-  AlertCircle, MessageSquare, Send, Upload, Info, Users, Rocket, Target, Check
+  AlertCircle, MessageSquare, Send, Upload, Info, Users, Rocket, Target, Check, 
 } from 'lucide-react';
 
 // --- DATA PRODUK GLOBAL ---
@@ -22,25 +22,25 @@ const ECOSYSTEM_PRODUCTS = [
     id: 'web-gen', title: 'Gems Web Generator', shortDesc: 'Engine pembuat Web SaaS dan Landing Page instan dengan komponen Tailwind premium.',
     fullDesc: 'Gems Web Generator adalah toolkit eksklusif AURA untuk mengotomatisasi pembuatan arsitektur web modern. Sistem ini menghasilkan struktur React/Next.js yang sudah terintegrasi database.',
     icon: Globe, color: 'blue', theme: 'from-blue-600 to-cyan-500', bgGlow: 'bg-blue-500/10', borderHover: 'hover:border-blue-500/50',
-    features: ['React & Next.js App Router', 'Premium Dark/Light Components', 'API & Database Ready'], status: 'READY - BATCH 1', actionText: 'Buka Web Generator'
+    features: ['React & Next.js App Router', 'Premium Dark/Light Components', 'API & Database Ready'], status: 'READY - BATCH 1', actionText: 'Buka Web Generator', link: 'https://gemini.google.com/gem/1lvEGr5TfZDPZbQkNNZxA2Fvf4FPn085K?usp=sharing'
   },
   {
     id: 'prompt-eng', title: 'Gems Prompt Engineering', shortDesc: 'Kuasai seni berkomunikasi dengan AI menggunakan template tingkat lanjut dan kerangka logis.',
     fullDesc: 'Jangan sekadar bertanya pada AI, programlah mereka. Gems Prompt Engineering memberikan akses ke framework eksklusif (Zero-shot, Few-shot, Chain-of-Thought).',
     icon: Terminal, color: 'purple', theme: 'from-purple-600 to-indigo-500', bgGlow: 'bg-purple-500/10', borderHover: 'hover:border-purple-500/50',
-    features: ['Master Prompt Frameworks', 'Zero-shot & Few-shot Mastery', 'Logic & Parameter Tuning'], status: 'READY - BATCH 1', actionText: 'Akses Prompt Library'
+    features: ['Master Prompt Frameworks', 'Zero-shot & Few-shot Mastery', 'Logic & Parameter Tuning'], status: 'READY - BATCH 1', actionText: 'Akses Prompt Library', link: 'https://gemini.google.com/gem/13EBxBQ_-A-OadWMwk1TXxt4eLvIN_KQQ?usp=sharing'
   },
   {
     id: 'code-puzzle', title: 'Gems Code Puzzle', shortDesc: 'Sistem pelatihan logika tingkat lanjut untuk developer dan engineer AI.',
     fullDesc: 'Tingkatkan intuisi algoritmik Anda. Gems Code Puzzle menyajikan tantangan rekayasa perangkat lunak dunia nyata.',
     icon: Cpu, color: 'emerald', theme: 'from-emerald-500 to-teal-400', bgGlow: 'bg-emerald-500/10', borderHover: 'hover:border-emerald-500/50',
-    features: ['Algorithmic Challenges', 'Real-world Bug Fixing', 'System Design Scenarios'], status: 'READY - BATCH 1', actionText: 'Mulai Latihan Logika'
+    features: ['Algorithmic Challenges', 'Real-world Bug Fixing', 'System Design Scenarios'], status: 'READY - BATCH 1', actionText: 'Mulai Latihan Logika', link :'https://gemini.google.com/gem/1p5bCIEugvBBhuT7MX3ssJ9fyaHJ7sBsg?usp=sharing'
   },
   {
     id: 'game-engine', title: 'Gems Game Engine', shortDesc: 'Mesin pembuat game HTML5/Canvas dengan dukungan fisika dan sprite rendering.',
     fullDesc: 'Bangun ekosistem gamifikasi langsung di browser. Engine ini dilengkapi dengan deteksi tabrakan (collision detection), manajemen state game loop, dan rendering 60FPS.',
     icon: Gamepad2, color: 'rose', theme: 'from-rose-500 to-pink-500', bgGlow: 'bg-rose-500/10', borderHover: 'hover:border-rose-500/50',
-    features: ['60FPS Canvas Rendering', 'Physics & Collision System', 'Sprite Animation Manager'], status: 'READY - BATCH 1', actionText: 'Luncurkan Game Engine'
+    features: ['60FPS Canvas Rendering', 'Physics & Collision System', 'Sprite Animation Manager'], status: 'READY - BATCH 1', actionText: 'Luncurkan Game Engine', link: 'https://gemini.google.com/gem/1iLpHJZWcnro9SnV1lNpKBOmV4cVkXrke?usp=sharing'
   }
 ];
 
@@ -442,9 +442,14 @@ function MemberDashboard({ user, updateUser, onLogout, showToast }) {
     { name: 'Settings', icon: Settings },
   ];
 
-  const handleLaunchProduct = (productName) => {
-    showToast(`Engine ${productName} sedang diinisialisasi...`, 'success');
-  };
+ const handleLaunchProduct = (product) => {
+  if (product.link) {
+    window.open(product.link, '_blank', 'noopener,noreferrer');
+    showToast(`Engine ${product.title} sedang diinisialisasi...`, 'success');
+  } else {
+    showToast(`Link untuk ${product.title} belum tersedia.`, 'warning');
+  }
+};
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
@@ -559,7 +564,7 @@ function MemberDashboard({ user, updateUser, onLogout, showToast }) {
                   </div>
                   <h4 className="text-lg font-bold text-white mb-2">{product.title}</h4>
                   <p className="text-sm text-slate-400 mb-6 flex-1">{product.shortDesc}</p>
-                  <button onClick={() => handleLaunchProduct(product.title)} className="w-full bg-blue-600/10 text-blue-400 hover:bg-blue-600 hover:text-white border border-blue-500/20 py-2.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2">
+                  <button onClick={() => handleLaunchProduct(product)} className="w-full bg-blue-600/10 text-blue-400 hover:bg-blue-600 hover:text-white border border-blue-500/20 py-2.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2">
                     {product.actionText} <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
