@@ -22,7 +22,7 @@ const ECOSYSTEM_PRODUCTS = [
     id: 'web-gen', title: 'Gems Web Generator', shortDesc: 'Engine pembuat Web SaaS dan Landing Page instan dengan komponen Tailwind premium.',
     fullDesc: 'Gems Web Generator adalah toolkit eksklusif AURA untuk mengotomatisasi pembuatan arsitektur web modern. Sistem ini menghasilkan struktur React/Next.js yang sudah terintegrasi database.',
     icon: Globe, color: 'blue', theme: 'from-blue-600 to-cyan-500', bgGlow: 'bg-blue-500/10', borderHover: 'hover:border-blue-500/50',
-    features: ['React & Next.js App Router', 'Premium Dark/Light Components', 'API & Database Ready'], status: 'READY - BATCH 1', actionText: 'Buka Web Generator'
+    features: ['React & Next.js App Router', 'Premium Dark/Light Components', 'API & Database Ready'], status: 'READY - BATCH 1', actionText: 'Buka Web Generator', link: 'https://gemini.google.com/gem/1lvEGr5TfZDPZbQkNNZxA2Fvf4FPn085K?usp=sharing'
   },
   {
     id: 'prompt-eng', title: 'Gems Prompt Engineering', shortDesc: 'Kuasai seni berkomunikasi dengan AI menggunakan template tingkat lanjut dan kerangka logis.',
