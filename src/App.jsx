@@ -465,7 +465,7 @@ function MemberDashboard({ user, updateUser, onLogout, showToast }) {
       setIsBotTyping(true);
       
       const apiKey = ""; 
-      const url = `AIzaSyC60bblqblUmkLSJILAQxPA9n7sTTs1DbE=${apiKey}`;
+      const url = "AIzaSyC60bblqblUmkLSJILAQxPA9n7sTTs1DbE"=${apiKey}`;
       
       const history = messages.admin.map(msg => ({
         role: msg.isAdmin ? "model" : "user",
